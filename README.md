@@ -9,7 +9,7 @@ A command-line tool for downloading Ollama models in configurable chunks with re
 Purchase: 
 1. Download the tool and run from the command prompt
 2. type ollama-dl license info
-3.**$10.99 a Year or $24.99 Lifetime purchase**
+3. **$10.99 a Year**
 4. Send payment to using paypal to raveuk@live.co.uk with **Machine ID** any instruction
 5. Email me at **raveuk@live.co.uk** with your details
 6. License will be sent within 30mins to 12hrs to your email
