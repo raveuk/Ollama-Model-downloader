@@ -6,17 +6,6 @@ A command-line tool for downloading Ollama models in configurable chunks with re
 **Version:** 1.0.0
 **Created:** March 2026
 
-Purchase: 
-1. Download the tool and run from the command prompt
-2. type ollama-dl license info
-3. **$10.99 a Year**
-4. Send payment to using paypal to raveuk@live.co.uk with **Machine ID** any instruction
-5. Email me at **raveuk@live.co.uk** with your details
-6. License will be sent within 30mins to 12hrs to your email
-7. Check your junks mails
-8. Code will be sent only once and can't be generated
-
-
 ## Features
 
 - **Chunked Downloads** - Download large models in 1GB chunks (configurable)
@@ -25,15 +14,48 @@ Purchase:
 - **Progress Display** - See overall and per-thread progress
 - **Integrity Verification** - SHA256 verification of all downloads
 - **IPv6 Support** - Optional IPv6 preference for faster speeds
+- **Free Trial** - 3-day free trial, no credit card required
 
 ## Installation
 
 1. Download `ollama-dl.exe` to your desired location
-2. Activate your license (see License Activation below)
+2. Start a free trial or activate your license (see below)
+
+## Free Trial
+
+Try ollama-dl free for 3 days! No credit card required.
+
+```bash
+ollama-dl license trial
+```
+
+The trial:
+- Lasts 3 days from activation
+- Full functionality, no limitations
+- One trial per machine
 
 ## License Activation
 
-This software requires a valid license to download models.
+After the trial, a valid license is required to download models.
+
+### Pricing
+
+| Plan | Price | Duration |
+|------|-------|----------|
+| 1 Year | $10 | 365 days |
+
+Purchase:
+
+Download the tool and run from the command prompt
+type ollama-dl license info
+$10.99 a Year
+Send payment to using paypal to raveuk@live.co.uk with Machine ID any instruction
+Email me at raveuk@live.co.uk with your details
+License will be sent within 30mins to 12hrs to your email
+Check your junks mails
+Code will be sent only once and can't be generated
+
+
 
 ### Get Your Machine ID
 
@@ -138,7 +160,8 @@ ollama-dl clean --all --force
 | `list` | List models |
 | `verify <model>` | Verify model integrity |
 | `clean` | Remove partial downloads |
-| `license info` | Show machine ID |
+| `license trial` | Start free 3-day trial |
+| `license info` | Show machine ID & trial status |
 | `license activate` | Activate license |
 | `license status` | Check license status |
 | `license deactivate` | Remove license |
@@ -199,6 +222,10 @@ Progress is saved automatically. Just run:
 ```bash
 ollama-dl resume
 ```
+
+### Trial Already Used
+
+Each machine can only use the trial once. If your trial has expired, purchase a license to continue using ollama-dl.
 
 ## License
 
