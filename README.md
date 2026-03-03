@@ -3,7 +3,7 @@
 A command-line tool for downloading Ollama models in configurable chunks with resume support.
 
 **Author:** Raveuk
-**Version:** 1.0.0
+**Version:** 1.1.0
 **Created:** March 2026
 
 ## Features
@@ -74,14 +74,14 @@ After the trial, a valid license is required to download models.
 
 Purchase:
 
-1. Download the tool and run from the command prompt
-2. type ollama-dl license info
-3. $10.99 a Year
-4. Send payment to using paypal to raveuk@live.co.uk with Machine ID any instruction
-5. Email me at raveuk@live.co.uk with your details
-6. License will be sent within 30mins to 12hrs to your email
-7. Check your junks mails
-8. Code will be sent only once and can't be generated
+Download the tool and run from the command prompt
+type ollama-dl license info
+$10.99 a Year
+Send payment to using paypal to raveuk@live.co.uk with Machine ID any instruction
+Email me at raveuk@live.co.uk with your details
+License will be sent within 30mins to 12hrs to your email
+Check your junks mails
+Code will be sent only once and can't be generated
 
 
 
@@ -212,20 +212,34 @@ ollama-dl clean --all --force
 | `-p, --parallel` | Parallel connections | 4 |
 | `--no-progress` | Disable progress bar | false |
 | `--no-verify` | Skip SHA256 verification | false |
+| `--simple` | Single-line progress (Git Bash compatible) | false |
 
 ## Progress Display
 
-During download, you'll see:
+During download, you'll see multi-line progress with per-thread details:
 
 ```
-┌─ Downloading sha256:30e51a7cb1cf...
-│ ██████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  35.2% (18.3/52.0 GB) 582.0 kB/s ETA: 16h5m
-├─ Active threads: 4
-│   Chunk   5: [========>           ]  42.3% 156.2 kB/s
-│   Chunk   6: [=====>              ]  28.1% 145.8 kB/s
-│   Chunk   7: [==>                 ]  15.6% 138.4 kB/s
-│   Chunk   8: [>                   ]   3.2% 141.2 kB/s
-└─────────────────────────────────────────────────────────────────
+Downloading sha256:30e51a7cb1cf... ██████████░░░░░░░░░░░░░░░░░░░░ 35.2% (18.3/52.0 GB) 80.9 MB/s ETA: 4m58s
+  Threads: 4 active
+    Chunk   5: [========-------]  42.3% 156.2 KB/s
+    Chunk   6: [=====----------]  28.1% 145.8 KB/s
+    Chunk   7: [==-------------]  15.6% 138.4 KB/s
+    Chunk   8: [---------------]   3.2% 141.2 KB/s
+```
+
+The number of thread lines shown matches your `-p` setting (e.g., `-p 8` shows 8 threads).
+
+### Simple Mode (Git Bash)
+
+If using Git Bash and the display is scrolling, use `--simple` for single-line progress:
+
+```bash
+ollama-dl pull llama3:8b --simple
+```
+
+Output:
+```
+Downloading sha256:30e... ████████░░░░░░░░░░░░ 40.0% (19.3/48.2 GB) 80.9 MB/s ETA: 5m58s [4 threads]
 ```
 
 ## Troubleshooting
@@ -254,6 +268,15 @@ ollama-dl resume
 ### Trial Already Used
 
 Each machine can only use the trial once. If your trial has expired, purchase a license to continue using ollama-dl.
+
+### Progress Display Issues (Git Bash)
+
+If the progress display is scrolling/repeating in Git Bash, use the `--simple` flag:
+```bash
+ollama-dl pull model:tag --simple
+```
+
+PowerShell and Windows Terminal work correctly with the default multi-line display.
 
 ## License
 
